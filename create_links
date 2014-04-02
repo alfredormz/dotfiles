@@ -1,0 +1,21 @@
+#!/bin/bash
+
+fancy_echo() {
+  printf "\n%b\n" "$1"
+}
+
+rcs="ackrc gitconfig githelpers tmux.conf gemrc irbrc pythonrc bash_aliases bash_profile bashrc bash_functions"
+
+fancy_echo "Installing dot files ..."
+echo
+for rc in $rcs;
+do
+  if [ -f "$HOME/.$rc" ]
+  then
+    echo "$rc already exist. Saving a copy as .old.$rc"
+    mv $HOME/.$rc $HOME/.old.$rc
+  fi
+  ln -s "$PWD/$rc" $HOME/.$rc
+done
+
+fancy_echo "Done."
