@@ -39,3 +39,5 @@
   la = !git l --all
 [help]
 	autocorrect = 1
+[push]
+	default = simple
