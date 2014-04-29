@@ -56,3 +56,12 @@ rh() {
   history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head
 }
 
+toggle_menu_bar() {
+  show=$(gconftool --get /apps/gnome-terminal/profiles/Default/default_show_menubar)
+  if [ $show == "false" ];
+  then
+    gconftool --type boolean --set /apps/gnome-terminal/profiles/Default/default_show_menubar true
+  else
+    gconftool --type boolean --set /apps/gnome-terminal/profiles/Default/default_show_menubar false
+  fi
+}
