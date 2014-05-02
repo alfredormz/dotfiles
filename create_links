@@ -4,7 +4,7 @@ fancy_echo() {
   printf "\n%b\n" "$1"
 }
 
-rcs="ackrc gitconfig githelpers tmux.conf gemrc irbrc pythonrc bash_aliases bash_profile bashrc bash_functions"
+rcs="ackrc gitconfig githelpers tmux.conf gemrc irbrc pythonrc bash_aliases bash_profile bashrc bash_functions sqliterc"
 
 fancy_echo "Installing dot files ..."
 echo
