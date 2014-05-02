@@ -1,6 +1,6 @@
 #!/bin/bash
 (
-  git clone https://github.com/alfredormz/dotfiles.git ~/.dotfiles
+  git clone --quiet https://github.com/alfredormz/dotfiles.git ~/.dotfiles
   cd ~/.dotfiles
   sh create_links
 )
