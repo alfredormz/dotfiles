@@ -12,7 +12,6 @@ for rc in $rcs;
 do
   if [ -f "$HOME/.$rc" ]
   then
-    echo "$rc already exist. Saving a copy as .old.$rc"
     mv $HOME/.$rc $HOME/.old.$rc
   fi
   ln -s "$PWD/$rc" $HOME/.$rc
