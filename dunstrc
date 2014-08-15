@@ -1,0 +1,95 @@
+# -*- Mode: conf -*-
+[global]
+
+    # Markup syntax:
+    #   http://developer.gnome.org/pango/stable/PangoMarkupFormat.html
+    # Format string variables:
+    #   %a  appname
+    #   %s  summary
+    #   %b  body
+    #   %i  iconname (including its path)
+    #   %I  iconname (without its path)
+    #   %p  progress value if set ([  0%] to [100%]) or nothing
+
+    # Message format
+    format = "<b>%s</b>\n%b"
+    allow_markup = yes
+    ignore_newline = no
+    # Message word-wrap/scroll
+    word_wrap = yes         # Split lines...
+    bounce_freq = 0         # ...or scroll long lines?
+    # Window settings
+    monitor = 0             # Default monitor
+    follow = mouse          # Follow monitors? (mouse/keyboard/none)
+    #geometry = "300x5-0+16" # [{width}]x{height}][+/-{x}+/-{y}]
+    geometry = "300x5-30+20"
+    transparency = 10
+    # Layout settings
+    padding = 8             # Vertical padding
+    horizontal_padding = 8  # Horizontal padding
+    separator_height = 2    # Height of line between notifications
+    separator_color = frame # (auto/foreground/frame/<X color>)
+    # Font settings
+    font = Ubuntu Mono 8
+    line_height = 0         # if less than font height, font height is used
+    alignment = right       # (left/center/right)
+    # Misc.
+    sort = yes              # Sort messages by urgency
+    indicate_hidden = yes
+    show_age_threshold = 60 # -1 to disable
+    idle_threshold = 120    # Don't timeout messages if the user is gone
+    sticky_history = yes    # Don't timeout messages popped up from history
+    startup_notification = false # mostly for debugging
+
+    # External programs
+    dmenu = dmenu = /usr/bin/dmenu -p dunst:
+    browser = v-www-browser
+
+[frame]
+    width = 1
+    color = "#eeeeec"
+
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#222222"
+    foreground = "#888888"
+    timeout = 5
+
+[urgency_normal]
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout = 5
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    timeout = 0
+
+# Every section that isn't one of the above is interpreted as a rules
+# to override settings for certain messages.
+
+# Filters: (shell-like globbing will get expanded)
+#   appname
+#   summary
+#   body
+#   icon
+# Overrides:
+#   timeout
+#   urgency
+#   foreground
+#   background
+#   format (blank to not display)
+# Scripting:
+#   If you set 'script=', the value will be called like:
+#       script appname summary body icon urgency
+#   Where urgency can be "LOW", "NORMAL" or "CRITICAL".
+#
+# NOTE: It might be helpful to run dunst -print in a terminal in order to find
+# fitting options for filters.

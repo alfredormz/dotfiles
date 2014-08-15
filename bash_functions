@@ -65,3 +65,13 @@ toggle_menu_bar() {
     gconftool --type boolean --set /apps/gnome-terminal/profiles/Default/default_show_menubar false
   fi
 }
+
+pm() {
+  pid=$1
+  echo $((`pmap -x $1 | grep "total kB" | cut -d" " -f11` / 1024))
+}
+
+suspend(){
+  sh -c "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock && dbus-send --system --print-reply --dest=org.freedesktop.UPower /org/freedesktop/UPower org.freedesktop.UPower.Suspend"
+}
+
