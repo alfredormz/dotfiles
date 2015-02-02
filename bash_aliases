@@ -27,7 +27,7 @@ alias rvmp="rvm-prompt"
 alias rebash='. ~/.bashrc'
 alias bashrc='${EDITOR} ~/.bashrc; rebash'
 
-alias tmux='tmux -2'
+alias tmux="tmux -2"
 
 alias q='exit'
 alias :q='exit'

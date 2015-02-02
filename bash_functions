@@ -39,13 +39,11 @@ pull() {
 }
 
 tnew(){
-  session=$1
-  tmux new-session -s ${session} -d
+  tmux -2 new-session -s $1 -d
 }
 
 tatt(){
-  session=$1
-  tmux attach -t ${session}
+   tmux new-session -As $(basename $PWD | tr . -)
 }
 
 tls(){
