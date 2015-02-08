@@ -1,7 +1,11 @@
 #!/bin/bash
 
-export HISTSIZE=1000
-export HISTFILESIZE=2000
+# Larger bash history
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+
 export EDITOR=vim
 export PYTHONSTARTUP=$HOME/.pythonrc
 
