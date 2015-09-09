@@ -21,10 +21,6 @@ branch_prompt(){
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
 }
 
-which_ruby(){
-  rvm-prompt g
-}
-
 git_prompt_info() {
    ref=$(/usr/bin/git symbolic-ref HEAD 2>/dev/null) || return
    echo "${ref#refs/heads/}"
@@ -35,7 +31,7 @@ push() {
 }
 
 pull() {
-  git pull origin $(branch)
+  git pull -r origin $(branch)
 }
 
 tnew(){
@@ -43,7 +39,7 @@ tnew(){
 }
 
 tatt(){
-   tmux new-session -As $(basename $PWD | tr . -)
+   tmux -2 new-session -As $(basename $PWD | tr . -)
 }
 
 tls(){
@@ -66,7 +62,7 @@ toggle_menu_bar() {
 
 pm() {
   pid=$1
-  echo $((`pmap -x $1 | grep "total kB" | cut -d" " -f11` / 1024))
+  echo "$((`pmap -x $1 | grep "total kB" | cut -d" " -f11` / 1024))MB"
 }
 
 suspend(){

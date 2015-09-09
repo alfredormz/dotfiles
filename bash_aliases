@@ -28,6 +28,7 @@ alias rebash='. ~/.bashrc'
 alias bashrc='${EDITOR} ~/.bashrc; rebash'
 
 alias tmux="tmux -2"
+alias t='tmuxify'
 
 alias q='exit'
 alias :q='exit'
@@ -38,7 +39,9 @@ alias gti=git
 alias g=gitsh
 alias fetch='git fetch'
 alias rebase='git rebase'
-
+alias wip="git add . && git ci -am 'wip'"
 alias pjson='python -mjson.tool'
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias vimrc="#{EDITOR} ~/.vimrc"
+alias O="cd ~/dev/overol"
+alias P="cd ~/dev/overol-parsers"
